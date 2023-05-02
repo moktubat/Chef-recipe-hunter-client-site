@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
+import ChefData from './ChefData';
 
 const Chefs = () => {
 
@@ -16,7 +17,12 @@ const Chefs = () => {
             <h2 class="fw-bold text-black d-inline pb-2 px-4 border-bottom border-5 border-danger">Our Chefs</h2>
             <Row xs={1} md={3} className="g-4">
       {
-        chefsData.map(chef => <p></p>
+        chefsData.map(chef => <ChefData
+        key={chef.id}
+        chef={chef}
+        >
+
+        </ChefData>
             )
       }
     </Row>
