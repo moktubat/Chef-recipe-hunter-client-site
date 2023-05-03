@@ -3,6 +3,7 @@ import { Container, Nav, NavLink, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Style from './Header.css';
 import logo from '../../assets/logo.png';
+import Login from '../../layouts/Login';
 
 const Header = () => {
     return (
@@ -17,7 +18,9 @@ const Header = () => {
             <Nav.Link to="#pricing">Food</Nav.Link>
             <Nav.Link to="#deets">Blog</Nav.Link>
             <Nav.Link to="#about">About</Nav.Link>
-            <Nav.Link to="/login">Login</Nav.Link>
+            <Nav.Link to="/login">
+              Login
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
