@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Nav, NavLink, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Style from './Header.css';
 import logo from '../../assets/logo.png';
 import Login from '../../layouts/Login';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
     return (
@@ -14,11 +15,11 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link to="#features">Home</Nav.Link>
-            <Nav.Link to="#pricing">Food</Nav.Link>
-            <Nav.Link to="#deets">Blog</Nav.Link>
-            <Nav.Link to="#about">About</Nav.Link>
-            <Nav.Link to="/login">
+            <Nav.Link to="/">Home</Nav.Link>
+            <Nav.Link to="#">Food</Nav.Link>
+            <Nav.Link to="#">Blog</Nav.Link>
+            <Nav.Link to="#">Profile</Nav.Link>
+            <Nav.Link to="login">
               Login
             </Nav.Link>
           </Nav>
