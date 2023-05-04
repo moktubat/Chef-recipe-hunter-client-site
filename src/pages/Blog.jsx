@@ -3,8 +3,8 @@ import Accordion from "react-bootstrap/Accordion";
 
 const Blog = () => {
   return (
-    <div className="container">
-      
+    <div className="container m-5">
+
       <Accordion defaultActiveKey={["0"]} alwaysOpen>
       <Accordion.Item eventKey="0">
         <Accordion.Header>01. Differences between uncontrolled and controlled components</Accordion.Header>

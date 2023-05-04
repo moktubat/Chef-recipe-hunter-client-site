@@ -15,9 +15,7 @@ const NavBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
             <Link to='/' className='nav-link fw-bold text-danger'>Home</Link>
-            <Link to='/food' className='nav-link fw-bold text-danger'>Food</Link>
             <Link to='/blog' className='nav-link fw-bold text-danger'>Blog</Link>
-            <Link to='#food' className='nav-link fw-bold text-danger'>Profile</Link>
             <Link to='/login' className='nav-link fw-bold text-danger'>
               Login
             </Link>

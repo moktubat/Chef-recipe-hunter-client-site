@@ -1,8 +1,46 @@
-import React from 'react';
-import {  MDBContainer,  MDBCol,  MDBRow,  MDBBtn,  MDBIcon,  MDBInput,  MDBCheckbox}
+import React, { useState } from 'react';
+import {  MDBContainer,  MDBCol,  MDBRow,  MDBInput,  MDBCheckbox}
 from 'mdb-react-ui-kit';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { Button } from 'react-bootstrap';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from '../firebase/firebase.config';
+
 
 const Login = () => {
+
+  const [user, setUser] = useState(null);
+
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, googleProvider)
+    .then(result => {
+      const loggedInUser = result.user;
+      const user = result.user;
+      setUser(loggedInUser);
+    })
+    .catch( error => {
+      console.log(error);
+    })
+  }
+
+
+  const handleGithubSignIn = () => {
+    signInWithPopup(auth, googleProvider)
+    .then(result => {
+      const loggedUser = result.user;
+      const user = result.user;
+      setUser(loggedUser);
+    })
+    .catch( error => {
+      console.log(error);
+    })
+  }
+
+
     return (
         <MDBContainer fluid className="p-3 my-5">
 
@@ -24,21 +62,21 @@ const Login = () => {
             <a href="!#">Forgot password?</a>
           </div>
 
-          <MDBBtn className="mb-4 w-100" size="lg">Sign in</MDBBtn>
+          <Button className="mb-4 w-100" >Sign in</Button>
 
           <div className="divider d-flex align-items-center my-4">
             <p className="text-center fw-bold mx-3 mb-0">OR</p>
           </div>
 
-          <MDBBtn className="mb-4 w-100" size="lg" style={{backgroundColor: '#3b5998'}}>
-            <MDBIcon fab icon="facebook-f" className="mx-2"/>
-            Continue with facebook
-          </MDBBtn>
+          <Button onClick={handleGoogleSignIn} className="mb-4 w-100" size="lg" style={{backgroundColor: '#dd4b39'}}>
+            <FaGoogle className="mx-2"/>
+            Continue with Google
+          </Button>
 
-          <MDBBtn className="mb-4 w-100" size="lg" style={{backgroundColor: '#55acee'}}>
-            <MDBIcon fab icon="twitter" className="mx-2"/>
-            Continue with twitter
-          </MDBBtn>
+          <Button onClick={handleGithubSignIn} className="mb-4 w-100" size="lg" style={{backgroundColor: '#333333'}}>
+            <FaGithub className="mx-2"/>
+            Continue with Github
+          </Button>
 
         </MDBCol>
 
