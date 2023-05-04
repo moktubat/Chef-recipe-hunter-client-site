@@ -3,6 +3,7 @@ import Header from '../pages/Shared/Header';
 import Footer from '../pages/Shared/Footer';
 import Chefs from '../pages/Chefs';
 import Foods from '../pages/foods';
+import Review from '../pages/Review';
 
 const Main = () => {
     return (
@@ -10,6 +11,7 @@ const Main = () => {
             <Header></Header>
             <Chefs></Chefs>
             <Foods></Foods>
+            <Review></Review>
             <Footer></Footer>
         </div>
     );
