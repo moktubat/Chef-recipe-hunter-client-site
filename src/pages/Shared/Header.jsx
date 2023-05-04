@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <div className='header-bg'>
                 
-        <div className="container">
+        <div className="container pt-5">
         <div className="d-flex align-content-center">
             <div className="col-md-12 col-lg-6 mt-5 pt-5 ms-e ">
                 <h1 className="display-4 fw-bold text-black">Teste your best food with a new Style!</h1>

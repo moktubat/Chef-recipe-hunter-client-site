@@ -10,7 +10,7 @@ const NavBar = () => {
         <div className='nav-bg'>
             <Navbar class="navbar navbar-expand-lg pt-3 pb-5" collapseOnSelect expand="lg">
       <Container>
-        <Navbar.Brand to="/"><img src={logo} alt="" /></Navbar.Brand>
+        <Link><Navbar.Brand to="/"><img src={logo} alt="" /></Navbar.Brand></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
