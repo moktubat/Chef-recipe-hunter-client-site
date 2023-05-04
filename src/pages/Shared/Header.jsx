@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Carousel, Container, Nav, NavLink, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Style from './Header.css';
-import logo from '../../assets/logo.png';
 import Login from '../../layouts/Login';
 import { AuthContext } from '../../providers/AuthProvider';
 import slid1 from '../../assets/slide1.jpg';
@@ -13,25 +12,8 @@ import slid3 from '../../assets/slide3.jpg';
 const Header = () => {
     return (
         <div className='header-bg'>
-            <Navbar class="navbar navbar-expand-lg pt-3 pb-5" collapseOnSelect expand="lg">
-      <Container>
-        <Navbar.Brand to="/"><img src={logo} alt="" /></Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="#food">Food</NavLink>
-            <NavLink to="blog">Blog</NavLink>
-            <NavLink to="#">Profile</NavLink>
-            <NavLink to="login">
-              Login
-            </NavLink>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-    
-        <div className="container mt-5">
+                
+        <div className="container">
         <div className="d-flex align-content-center">
             <div className="col-md-12 col-lg-6 mt-5 pt-5 ms-e ">
                 <h1 className="display-4 fw-bold text-black">Teste your best food with a new Style!</h1>

@@ -3,7 +3,9 @@ import Accordion from "react-bootstrap/Accordion";
 
 const Blog = () => {
   return (
-    <Accordion defaultActiveKey={["0"]} alwaysOpen>
+    <div className="container">
+      
+      <Accordion defaultActiveKey={["0"]} alwaysOpen>
       <Accordion.Item eventKey="0">
         <Accordion.Header>01. Differences between uncontrolled and controlled components</Accordion.Header>
         <Accordion.Body>
@@ -41,6 +43,7 @@ const Blog = () => {
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
+    </div>
   );
 };
 
