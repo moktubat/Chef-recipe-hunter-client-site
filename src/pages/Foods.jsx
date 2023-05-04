@@ -9,14 +9,14 @@ import { FaDollarSign, FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 const Foods = () => {
   return (
-    <div className="container text-center my-5 bg-danger-subtle rounded">
+    <div className="container text-center my-5 bg-danger-subtle rounded" id="food">
       <h2 className="fw-bold text-black d-inline  px-4 border-bottom border-5 border-danger pb-1">
         Popular Items
       </h2>
 
       {
-        <CardGroup className="g-4 my-5" >
-          <Card>
+        <CardGroup className="gap-5 my-5" >
+          <Card className="shadow p-3 mb-5 bg-body rounded">
             <Card.Img variant="top" src={image1} />
             <Card.Body>
               <Card.Title>Fettuccine Pomodoro</Card.Title>
@@ -34,7 +34,7 @@ const Foods = () => {
               <Button variant="danger"><small>Order Now</small></Button>
             </Card.Footer>
           </Card>
-          <Card>
+          <Card className="shadow p-3 mb-5 bg-body rounded">
             <Card.Img variant="top" src={image2} />
             <Card.Body>
               <Card.Title>Bruschetta</Card.Title>
@@ -52,7 +52,7 @@ const Foods = () => {
             <Button variant="danger"><small>Order Now</small></Button>
             </Card.Footer>
           </Card>
-          <Card>
+          <Card className="shadow p-3 mb-5 bg-body rounded">
             <Card.Img variant="top" src={image3} />
             <Card.Body>
               <Card.Title>Caprese Salad with Pesto Sauce</Card.Title>
@@ -70,7 +70,7 @@ const Foods = () => {
             <Button variant="danger"><small>Order Now</small></Button>
             </Card.Footer>
           </Card>
-          <Card>
+          <Card className="shadow p-3 mb-5 bg-body rounded">
             <Card.Img variant="top" src={image4} />
             <Card.Body>
               <Card.Title>Pasta Con Pomodoro E Basilico</Card.Title>
