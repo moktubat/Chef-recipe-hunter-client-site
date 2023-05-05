@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
+import { FaCloudDownloadAlt } from "react-icons/fa";
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const Blog = () => {
+
+  const [loader, setLoader] = useState(false);
+
+  const downloadPDF = () => {
+    const capture = document.querySelector('full-page');
+    setLoader(true);
+    html2canvas(capture).then((canvas)=>{
+      const doc = new jsPDF('p', 'mm', 'a4');
+      const componentWidth = doc.internal.pageSize.getWidth();
+      const componentHeight = doc.internal.pageSize.getHeight();
+      doc.addImage(imgData, 0, 0, componentWidth, componentHeight);
+      setLoader(false);
+      doc.save('blog.pdf');
+    })
+  }
   return (
-    <div className="container m-5">
+    <div className="container m-5 full-page">
 
       <Accordion defaultActiveKey={["0"]} alwaysOpen>
       <Accordion.Item eventKey="0">
@@ -43,7 +62,19 @@ const Blog = () => {
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
+
+    <div className="container ">
+      <Button onClick={downloadPDF} disabled={!(loader === false)} className="mx-auto"><FaCloudDownloadAlt className="m-1"></FaCloudDownloadAlt>
+      {loader?(
+        <span>Downloading PDF</span>
+      ):(
+        <span>Download PDF</span>
+      )}
+      </Button>
     </div>
+    </div>
+
+   
   );
 };
 

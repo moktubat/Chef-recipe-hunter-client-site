@@ -1,6 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import {createUserWithEmailAndPassword, getAuth} from 'firebase/auth';
+import app from "../firebase/firebase.config";
+
+const auth = getAuth(app);
 
 const Register = () => {
+  const [email, setEmail] = useState('');
+
+
+
+  const handleRegister = event =>{
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    console.log(email, password);
+    createUserWithEmailAndPassword(auth, email, password)
+    .then(result => {
+      const loggedUser = result.user;
+    })
+    .catch(error => {
+      console.error(error);
+    })
+  }
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  }
+
+  const handlePasswordBlur = (event) => {
+
+  }
+
   return (
     <div className="container">
       <div className="vh-100" style={{backgroundColor: '#eee'}}>
@@ -15,7 +45,7 @@ const Register = () => {
                         Sign up
                       </p>
 
-                      <form className="mx-1 mx-md-4">
+                      <form onSubmit={handleRegister} className="mx-1 mx-md-4">
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
@@ -33,7 +63,7 @@ const Register = () => {
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
-                            <input
+                            <input onChange={handleEmailChange}
                               type="email"
                               id="form3Example3c"
                               className="form-control"
@@ -61,7 +91,7 @@ const Register = () => {
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
-                            <input
+                            <input onBlur={handlePasswordBlur}
                               type="password"
                               id="form3Example4c"
                               className="form-control"

@@ -1,13 +1,14 @@
 import React from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import Recipes from "./Recipes";
 
 const ChefRecipes = () => {
   const { id } = useParams();
   const chefInfo = useLoaderData();
   const { name, image, experience, recipes, likes, bio, recipe } = chefInfo;
 
-  console.log(recipe[2].recipe_name);
+  console.log(recipe.recipe_name);
 
   return (
     <div>
@@ -79,11 +80,14 @@ const ChefRecipes = () => {
                   </div>
                   <div class="row g-2">
                     <div class="col mb-2">
-                      <img
-                        src={recipe[1].image}
-                        alt="image 1"
-                        class="w-100 rounded-3"
-                      />
+                      {
+                        recipe.map(rec => <Recipes 
+                        key={rec.id} 
+                        rec={rec}>
+                          
+                          
+                        </Recipes>)
+                      }
                     </div>
                   </div>
                   
